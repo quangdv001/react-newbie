@@ -3,9 +3,6 @@ import {connect} from 'react-redux';
 import * as templateAction from '../actions/templateAction';
 import { TemplateApi } from "../../api/templateApi";
 
-import { DragDropContext } from 'react-dnd'
-import HTML5Backend from 'react-dnd-html5-backend'
-
 import { Layout } from 'element-react';
 import 'element-theme-default';
 import LeftSideBar from './LeftSideBar/LeftSideBar';
