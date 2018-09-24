@@ -1,0 +1,36 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+.side-bar{
+    background: #ccc;
+}
+
+.icon-drag{
+    font-size: 50px;
+    margin: 30px 40px;
+    text-align: center;
+    display: inline-block;
+    background: #fff;
+    
+}
+
+.bl-icon-drag{
+    height: 100px;
+    margin-bottom: 10px;
+    background: #fff;
+    border: 1px solid #ccc;
+}
+
+.main-wrap{
+    background: rgb(170, 83, 83);
+    overflow: auto;
+}
+
+.main-container{
+    height: 500px;
+    width: 500px;
+    background: #ccc;
+    margin: 50px auto;
+}

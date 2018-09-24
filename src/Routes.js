@@ -1,13 +1,13 @@
 
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
-import templateLayout from './template_builder/components/templateLayout'
+import TemplateLayout from './template_builder/components/TemplateLayout'
 
 const Routes = (props) => {
     return (
         <BrowserRouter>
             <Switch>
-                <Route path="/" component={templateLayout} />
+                <Route path="/" component={TemplateLayout} />
                 
             </Switch>
         </BrowserRouter>

@@ -1,13 +1,16 @@
 import React, {Component} from 'react';
-import ReactDOM from 'react-dom';
 import {connect} from 'react-redux';
 import * as templateAction from '../actions/templateAction';
 import { TemplateApi } from "../../api/templateApi";
 
+import { DragDropContext } from 'react-dnd'
+import HTML5Backend from 'react-dnd-html5-backend'
+
 import { Layout } from 'element-react';
 import 'element-theme-default';
-
-class templateLayout extends Component {
+import LeftSideBar from './LeftSideBar/LeftSideBar';
+import MainTemplate from './TemplateMain';
+class TemplateLayout extends Component {
 
     componentDidMount(){
         const title = 'ABC';
@@ -22,9 +25,9 @@ class templateLayout extends Component {
         var id = this.props.match.params.id || 0;
         console.log(id);
 
-        TemplateApi.getData().then(res => {
-            this.props.dispatch(templateAction.getDataSuccess(data));
-        });
+        // TemplateApi.getData().then(res => {
+        //     this.props.dispatch(templateAction.getDataSuccess(data));
+        // });
 
     }
 
@@ -32,12 +35,12 @@ class templateLayout extends Component {
         return (
             <div>
                 <Layout.Row>
-                    <Layout.Col span="24"><div className="grid-content bg-purple-dark">Header</div></Layout.Col>
+                    <Layout.Col span="24"><div className="grid-content bg-purple-dark header">Header</div></Layout.Col>
                 </Layout.Row>
                 <Layout.Row>
-                    <Layout.Col span="4"><div className="grid-content bg-purple"></div>left sidebar</Layout.Col>
-                    <Layout.Col span="16"><div className="grid-content bg-purple-light">content </div></Layout.Col>
-                    <Layout.Col span="4"><div className="grid-content bg-purple"></div>right</Layout.Col>
+                    <Layout.Col span="4"><div className="grid-content bg-purple side-bar"><LeftSideBar /></div></Layout.Col>
+                    <Layout.Col span="16"><div className="grid-content bg-purple-light content-wrap"><MainTemplate /> </div></Layout.Col>
+                    <Layout.Col span="4"><div className="grid-content bg-purple side-bar">right</div></Layout.Col>
                 </Layout.Row>
             </div>
         );
@@ -50,5 +53,7 @@ const mapStateToProps = (state) => {
     }
 };
 
+TemplateLayout = DragDropContext(HTML5Backend)(TemplateLayout);
+TemplateLayout = connect(mapStateToProps)(TemplateLayout);
 
-export default connect(mapStateToProps)(templateLayout);
+export default TemplateLayout;
