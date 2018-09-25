@@ -1,6 +1,8 @@
+
+
 export const ItemTypes = {
-    BtnUpload: 'btn_upload',
-  }
+    BtnDrag: 'btn_drag',
+}
   
 export const MOVE_KNIGHT = 'MOVE_KNIGHT'
   

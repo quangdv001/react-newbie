@@ -2,11 +2,14 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import * as templateAction from '../actions/templateAction';
 import { TemplateApi } from "../../api/templateApi";
+import { DragDropContext } from 'react-dnd';
+import HTML5Backend from 'react-dnd-html5-backend';
 
 import { Layout } from 'element-react';
 import 'element-theme-default';
 import LeftSideBar from './LeftSideBar/LeftSideBar';
 import MainTemplate from './TemplateMain';
+
 class TemplateLayout extends Component {
 
     componentDidMount(){
@@ -20,7 +23,7 @@ class TemplateLayout extends Component {
         }
 
         var id = this.props.match.params.id || 0;
-        console.log(id);
+        // console.log(id);
 
         // TemplateApi.getData().then(res => {
         //     this.props.dispatch(templateAction.getDataSuccess(data));
@@ -44,11 +47,7 @@ class TemplateLayout extends Component {
     }
 }
 
-const mapStateToProps = (state) => {
-    return {
-        posts: state
-    }
-};
+const mapStateToProps = state => state
 
 TemplateLayout = DragDropContext(HTML5Backend)(TemplateLayout);
 TemplateLayout = connect(mapStateToProps)(TemplateLayout);
